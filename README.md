@@ -13,11 +13,11 @@
 
 ## Demo
 
- Placeholder Text.
+ [github.io](https://hantasmagoria.github.io)
 
 ## Install
 
- [download as ZIP](https://github.com/Hantasmagoria/TenkiNeKo/archive/master.zip).
+ [download as ZIP](https://github.com/Hantasmagoria/overdoze/archive/master.zip).
 
 ## Usage
 
