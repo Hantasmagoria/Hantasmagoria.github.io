@@ -1,4 +1,4 @@
-# :warning::sleeping: [oVErdOZe](https://github.com/Hantasmagoria/TenkiNeKo) :sleepy::zzz:
+# :warning::sleeping: [oVErdOZe](https://github.com/Hantasmagoria/overdoze) :sleepy::zzz:
 
 >Javascript HTML5 game
 
