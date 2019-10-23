@@ -124,38 +124,40 @@ class Game {
         }
         class Object{
           constructor(x,y,width,height){
-            // class Animator {
-            //   constructor(frameSet, delay){
-            //     this.count = 0;
-            //     this.delay = (delay>0)?delay:1;
-            //     this.frameSet = frameSet;
-            //     this.frameIndex = 0;
-            //     this.frameValue = frameSet[0];
-            //     this.mode = 'pause';
-            //   }
-            //   animate(){
-            //     if (this.mode == 'loop') {
-            //       this.loop()
-            //     }
-            //   }
-            //   changeFrameSet(frameSet, mode, delay=10, frameIndex=0){
-            //     if (this.frameSet ===frameSet) {return;}
-            //     this.count = 0;
-            //     this.delay = delay;
-            //     this.frameSet = frameSet;
-            //     this.frameIndex = frameIndex;
-            //     this.frameValue = frameSet[frameIndex];
-            //     this.mode = mode;
-            //   }
-            //   loop(){
-            //     this.count++;
-            //     while (this.count>this.delay) {
-            //       this.count-=this.delay;
-            //       this.frameIndex = (this.frameIndex<this.frameSet.length)?this.frameIndex+1:0;
-            //       this.frameValue = this.frameSet[this.frameIndex];
-            //     }
-            //   }
-            // }
+            //old animator class, currently defunct due to inheritance issues. Will put it back here when Javascript finally has multiple inheritance.
+            /*class Animator {
+              constructor(frameSet, delay){
+                this.count = 0;
+                this.delay = (delay>0)?delay:1;
+                this.frameSet = frameSet;
+                this.frameIndex = 0;
+                this.frameValue = frameSet[0];
+                this.mode = 'pause';
+              }
+              animate(){
+                if (this.mode == 'loop') {
+                  this.loop()
+                }
+              }
+              changeFrameSet(frameSet, mode, delay=10, frameIndex=0){
+                if (this.frameSet ===frameSet) {return;}
+                this.count = 0;
+                this.delay = delay;
+                this.frameSet = frameSet;
+                this.frameIndex = frameIndex;
+                this.frameValue = frameSet[frameIndex];
+                this.mode = mode;
+              }
+              loop(){
+                this.count++;
+                while (this.count>this.delay) {
+                  this.count-=this.delay;
+                  this.frameIndex = (this.frameIndex<this.frameSet.length)?this.frameIndex+1:0;
+                  this.frameValue = this.frameSet[this.frameIndex];
+                }
+              }
+            }
+            */
 
             this.height = height;
             this.width = width;
@@ -195,15 +197,14 @@ class Game {
 
 
             this.frameSets = {
-              // TODO: cross-check with spritesheet/framedata and see if the anims are reffing correctly.
               "idleLeft": [0],
               "jumpLeft": [1],
-              "moveLeft": [2,3,4,5],//this one is bugged. reference line 245
+              "moveLeft": [2,3,4,5],
               "idleRight": [6],
               "jumpRight": [7],
-              "moveRight": [8,9,10,11],//this one is bugged reference line 252
+              "moveRight": [8,9,10,11],
             }
-            //animator pseudoclass below because I can't seem to figure out how to hack it.
+            //animator pseudoclass below, refer to comment @ line #127
             this.count = 0;
             this.delay = (delay>0)?delay:1;
             this.frameSet = this.frameSets[frameSet];
@@ -233,7 +234,7 @@ class Game {
             this.vX += 0.65 * this.vCoefficient
           }
 
-          //this updates the animation according to movement. reference: "player.updateAnimation"
+          //this updates the animation according to movement. external reference: "player.updateAnimation"
           stepShow() {
             if (this.vY<0) {
               if (this.dX<0){
@@ -256,7 +257,7 @@ class Game {
             }
             this.animate();
           }
-          //this updates the position accoding to the speed. reference: "player.updatePosition"
+          //this updates the position accoding to the speed. external reference: "player.updatePosition"
           stepThrough(gravity, resistance) {
             this.oldX = this.posX;
             this.oldY = this.posY;
@@ -291,7 +292,6 @@ class Game {
         }
         class Tilesheet {
           constructor(tileSize, columns) {
-            // this.image = new Image();
             class Frame {
               constructor(x,y,width,height,offX,offY) {
                 this.x = x;
@@ -505,6 +505,16 @@ class Game {
     this.update();
   }
 }
+
+//below is just some game design stuff where I actually think about:
+// -the storyline,
+// -level design,
+// -audio cues,
+// -background music,
+// -color themes,
+// -user experience,
+// -voiceovers,
+//-etc.
 
 //Players
 //Objectives
