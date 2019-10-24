@@ -1,4 +1,4 @@
-## Project 1: From F9 to A1 Post Mortem
+## Project 1: overdoze Post Mortem
 
 #### Approach and Process
 
@@ -49,7 +49,7 @@
 
 #### Unit 1 Post Mortem
 1. What habits did I use during this unit that helped me? 
-  * taking care of myself(big thanks to @norman87 for the casual reminders),
+  * taking care of myself(big thanks to [@norman87](https://github.com/norman87) for the casual reminders),
   * proper hydration, exercise, (I would say diet here but I've been eating trash mostly these few weeks. I eat enough/frequently to have forgotten that hunger exists, at least.)
   * I commented for myself because as a psychopath myself I know exactly what I would do if I would ever want to physically harm another human being because of terrible commenting. On the flipside though, psychopathy is an entire spectrum, so my way of commenting might not cater to all forms of psychopathy, and I may need to do some commenting revisions.
 2. What habits did I have during this unit that I can improve on?
