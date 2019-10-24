@@ -78,7 +78,7 @@ Planned Features:
   
 ##  Dev Notes
 
->I initially intended for this game to be a lot simpler, as it started out as just a small project meant for 
+>I initially intended for this game to be a lot simpler, as it started out as just a small project meant for Project 1 of Software Engineering Immersive Flex in GeneralAssembly.
 
 ##  Glossary
 
