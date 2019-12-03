@@ -14,6 +14,10 @@ body {
   color: #7a7c80;
 }
 
+.jumbotron {
+  background-color: #101214 !important;
+}
+
 h2,
 .white {
   color: rgb(10, 110, 87);
