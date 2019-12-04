@@ -28,19 +28,29 @@ class About extends React.Component {
       ]
     };
   }
+
   render() {
     return (
-      <div class="tab-pane active" id="About">
-        {/* loop this over sections */}
+      <div className="tab-pane active" id="About">
+        {/* {this.state.section.map(section => {
+          return (
+            <div>
+              {" "}
+              <h2>{section.title}</h2> <p>{section.content}</p>{" "}
+            </div>
+          );
+        })} */}
         <h2>{this.state.section[0].title}</h2>
         <p>{this.state.section[0].content}</p>
+        <h2>{this.state.section[1].title}</h2>
+        <p>{this.state.section[1].content}</p>
       </div>
     );
   }
 }
 class Projects extends React.Component {
   render() {
-    return <div class="tab-pane" id="Projects"></div>;
+    return <div className="tab-pane" id="Projects"></div>;
   }
 }
 class Contact extends React.Component {
@@ -48,21 +58,26 @@ class Contact extends React.Component {
     return (
       <div>
         {" "}
-        <i class="fas fa-h1    "></i>{" "}
+        <i className="fas fa-h1    "></i>{" "}
       </div>
     );
   }
 }
 
 class Tab extends React.Component {
-  render() {}
+  render() {
+    <div>
+      {" "}
+      <i className="fas fa-h1    "></i>{" "}
+    </div>;
+  }
 }
 
 class App extends React.Component {
   render() {
     return (
-      <div class="tabbable">
-        <Tab />
+      <div className="tabbable">
+        <About />
       </div>
     );
   }
