@@ -23,3 +23,11 @@ a {
   color: #836856;
   text-decoration: none;
 }
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: contents;
+}
