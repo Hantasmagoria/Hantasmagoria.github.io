@@ -36,7 +36,7 @@ class About extends React.Component {
         className={this.state.active ? "tab-pane active" : "tab-pane"}
         id="About"
       >
-        {this.state.section.map(section => {
+        {this.state.section.map((section, key) => {
           return (
             <div>
               {" "}
@@ -95,7 +95,7 @@ class Projects extends React.Component {
         className={this.state.active ? "tab-pane active" : "tab-pane"}
         id="Projects"
       >
-        {this.state.projects.map(project => {
+        {this.state.projects.map((project, key) => {
           return (
             <div>
               {" "}
