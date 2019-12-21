@@ -1,208 +1,315 @@
-// import { Tab, Tabs } from 'react-bootstrap';
+//   ▄            ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄       ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄
+//  ▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌
+//  ▐░▌          ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀      ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀
+//  ▐░▌          ▐░▌          ▐░▌               ▐░▌          ▐░▌               ▐░▌     ▐░▌       ▐░▌▐░▌
+//  ▐░▌          ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄      ▐░▌          ▐░█▄▄▄▄▄▄▄▄▄      ▐░▌     ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄
+//  ▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░▌          ▐░░░░░░░░░░░▌     ▐░▌     ▐░▌       ▐░▌▐░░░░░░░░░░░▌
+//  ▐░▌          ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀      ▐░▌           ▀▀▀▀▀▀▀▀▀█░▌     ▐░▌     ▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀
+//  ▐░▌          ▐░▌          ▐░▌               ▐░▌                    ▐░▌     ▐░▌     ▐░▌       ▐░▌▐░▌
+//  ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌               ▐░▌           ▄▄▄▄▄▄▄▄▄█░▌ ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄
+//  ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌               ▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌
+//   ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀                 ▀            ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀
 
-// class About extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       active: true,
-//       section: [
-//         {
-//           id: 'about1',
-//           title: "About",
-//           content: [
-//             `With the techniques, discipline, and principles learned during
-//             my time in National Service, I shed light on how frameworks can
-//             facilitate the agglomeration of generations of computer science
-//             and computation to solve and create.`,
-//             `My extensive
-//             background in technology allows me to generate programmatically
-//             applicable solutions, and the software development and software
-//             engineering skills acquired during my Software Engineering
-//             Immersive course in General Assembly bring these solutions to
-//             life.`
-//           ]
-//         },
-//         {
-//           id: 'about2',
-//           title: "Skills",
-//           content: [
-//             `Javascript, HTML5, CSS, Node.js, React, express, ejs, mongodb,
-//             mongoose, jQuery, Git, Github`
-//           ]
-//         }
-//       ]
-//     };
-//   }
-//   render() {
-//     return (
-//       <div
-//         className={this.state.active ? "tab-pane active" : "tab-pane"}
-//         id="About"
-//       >
-//         {this.state.section.map((section) => {
-//           return (
-//             <div key={section.id}>
-//               {" "}
-//               <h2>{section.title}</h2> <p>{section.content}</p>{" "}
-//             </div>
-//           );
-//         })}
-//         {/* <h2>{this.state.section[0].title}</h2>
-//         <p>{this.state.section[0].content}</p>
-//         <h2>{this.state.section[1].title}</h2>
-//         <p>{this.state.section[1].content}</p> */}
-//       </div>
-//     );
-//   }
-// }
+class Leftside extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mainEntry: this.props.mainEntry
+    };
+  }
 
-// class Projects extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       active: false,
-//       projects: [
-//         {
-//           id: 'projects1',
-//           title: "Overdoze",
-//           url:
-//             "https://github.com/Hantasmagoria/Hantasmagoria.github.io/blob/master/documentations/overdoze.md",
-//           description: `Project 1 for Software Engineering Immersive @ General Assembly.
-//         Platform game developed using HTML5 and Javascript.
-//         Assets used are from opengameart.org`
-//         },
-//         {
-//           id: 'projects2',
-//           title: "ODDB",
-//           url: "https://overdozews.herokuapp.com/",
-//           description: `Project 2 for Software Engineering Immersive @ General Assembly.
-//         Database-enabled website for leaderboard and score tracking.
-//         Inspired by design at osu.ppy.sh`
-//         },
-//         {
-//           id: 'projects3',
-//           title: "Shana the Discord Bot",
-//           url:
-//             "https://github.com/Hantasmagoria/UnrehearsedAntihistoricalValedictorian",
-//           description: `Discord bot catered for the needs of the Invictus discord server.
-//         Uses the discord.js library, hosted on heroku.`
-//         },
-//         {
-//           id: 'projects4',
-//           title: "MCOnline JN script",
-//           url: "https://github.com/Hantasmagoria/mcojn",
-//           description: `A Javascript Bookmarklet for restructuring the data in the DOM within the facility booking system in MCOnline.sg`
-//         }
-//       ]
-//     };
-//   }
-//   render() {
-//     return (
-//       <div
-//         className={this.state.active ? "tab-pane active" : "tab-pane"}
-//         id="Projects"
-//       >
-//         <h2>Projects</h2>
-//         {this.state.projects.map((project) => {
-//           return (
-//             <div key={project.id}>
-//               {" "}
-//               <a href={project.url} title={project.description}>
-//                 {project.title}
-//               </a>{" "}
-//             </div>
-//           );
-//         })}
-//       </div>
-//     );
-//   }
-// }
+  componentDidUpdate(prevProps) {
+    if (prevProps.mainEntry != this.props.mainEntry) {
+      this.setState({ mainEntry: this.props.mainEntry });
+    }
+  }
 
-// class Contact extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       active: false,
-//       emailAdd: "farhan.daud.hyperfusion@gmail.com"
-//     }
-//   }
-//   render() {
-//     return (
-//       <div className={this.state.active ? "tab-pane active" : "tab-pane"}
-//         id="Contact">
-//         {" "}
-//         <h2>Contact</h2>
-//         <a href={"mailto:" + this.state.emailAdd}>{this.state.emailAdd}</a>{" "}
-//       </div>
-//     );
-//   }
-// }
+  render() {
+    return (
+      <div onClick={this.props.explode}>
+        {/* Placeholder link while I set up my own little MERN stack web server at home.*/}
 
-// class Tabs extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       tabList: [
-//         {
-//           id: 'About',
-//           title: 'About Me',
-//           active: true
-//         }, {
-//           id: 'Projects',
-//           title: 'Projects',
-//           active: false
-//         }, {
-//           id: 'Contact',
-//           title: 'Contact Info',
-//           active: false
-//         },
-//       ]
-//     }
-//   }
-//   render() {
-//     <div className="tabbable">
-//       <ul class="nav nav-tabs">
-//         {this.state.tabList.map((tab) => {
-//           return (
-//             <li className={tab.active ? "nav-item active" : "nav-item"} key={tab.id}>
-//               <a className="nav-link" href={'#' + tab.id} data-toggle="tab">
-//                 {tab.title}
-//               </a>
-//             </li>
-//           );
-//         })}
-//       </ul>
-//     </div>;
-//   }
-// }
+        {this.state.mainEntry ? (
+          <h1 className="text-center">
+            <i className="fas fa-code fa-5x white"></i>
+          </h1>
+        ) : (
+          <h6>
+            <i className="fas fa-code fa-5x white"></i>
+          </h6>
+        )}
+        {this.state.mainEntry ? (
+          <h2 className="display-1">Farhan Bin Daud</h2>
+        ) : (
+          <h2>Farhan Bin Daud</h2>
+        )}
+        {this.state.mainEntry ? (
+          <p className="display-3">Singapore</p>
+        ) : (
+          <p>Singapore</p>
+        )}
+        <a href="https://www.linkedin.com/in/hantasmagoria/">
+          <i
+            className={
+              this.state.mainEntry
+                ? "fab fa-linkedin fa-4x"
+                : "fab fa-linkedin fa-2x"
+            }
+          ></i>
+        </a>
+        <a href="https://github.com/Hantasmagoria/">
+          <i
+            className={
+              this.state.mainEntry
+                ? "fab fa-github fa-4x"
+                : "fab fa-github fa-2x"
+            }
+          ></i>
+        </a>
+      </div>
+    );
+  }
+}
 
-// class TabContent extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {}
-//   }
-//   render() {
-//     <div className="tab-content">
-//       <About {/* activeTab Prop Here */} />
-//       <Projects />
-//       <Contact />
-//     </div>;
-//   }
-// }
+// ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄       ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄
+// ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌
+// ▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░▌       ▐░▌ ▀▀▀▀█░█▀▀▀▀      ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀
+// ▐░▌       ▐░▌     ▐░▌     ▐░▌          ▐░▌       ▐░▌     ▐░▌          ▐░▌               ▐░▌     ▐░▌       ▐░▌▐░▌
+// ▐░█▄▄▄▄▄▄▄█░▌     ▐░▌     ▐░▌ ▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌     ▐░▌          ▐░█▄▄▄▄▄▄▄▄▄      ▐░▌     ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄
+// ▐░░░░░░░░░░░▌     ▐░▌     ▐░▌▐░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░▌          ▐░░░░░░░░░░░▌     ▐░▌     ▐░▌       ▐░▌▐░░░░░░░░░░░▌
+// ▐░█▀▀▀▀█░█▀▀      ▐░▌     ▐░▌ ▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌     ▐░▌           ▀▀▀▀▀▀▀▀▀█░▌     ▐░▌     ▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀
+// ▐░▌     ▐░▌       ▐░▌     ▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌                    ▐░▌     ▐░▌     ▐░▌       ▐░▌▐░▌
+// ▐░▌      ▐░▌  ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░▌       ▐░▌     ▐░▌           ▄▄▄▄▄▄▄▄▄█░▌ ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄
+// ▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌     ▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌
+//  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀       ▀            ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀
 
-// class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {}
-//   }
-//   render() {
-//     return (
-//       <div class="tabbable">
-//         <Tabs />
-//         <TabContent />
-//       </div>
-//     );
-//   }
-// }
+class Rightside extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mainEntry: this.props.mainEntry
+    };
+  }
 
-// ReactDOM.render(<App />, document.getElementById("root"));
+  componentDidUpdate(prevProps) {
+    if (prevProps.mainEntry != this.props.mainEntry) {
+      this.state.mainEntry = this.props.mainEntry;
+    }
+  }
+
+  render() {
+    return (
+      <div className="tabbable">
+        <NavTabs />
+        <TabContent />
+      </div>
+    );
+  }
+}
+
+class NavTabs extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    return (
+      <ul className="nav nav-tabs" id="tableau" role="tablist">
+        <li className="nav-item">
+          <a className="nav-link active show" href="#About" data-toggle="tab">
+            About Me
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#Projects" data-toggle="tab">
+            Projects
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#Contact" data-toggle="tab">
+            Contact Info
+          </a>
+        </li>
+      </ul>
+    );
+  }
+}
+
+class TabContent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div className="tab-content">
+        <About />
+        <Projects />
+        <Contact />
+      </div>
+    );
+  }
+}
+
+class About extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    return (
+      <div className="tab-pane active" id="About">
+        <h2>About</h2>
+        <p>
+          With the techniques, discipline, and principles learned during my time
+          in National Service, I shed light on how frameworks can facilitate the
+          agglomeration of generations of computer science and computation to
+          solve and create.
+          <br />
+          My extensive background in technology allows me to generate
+          programmatically applicable solutions, and the software development
+          and software engineering skills acquired during my Software
+          Engineering Immersive course in General Assembly bring these solutions
+          to life.
+        </p>
+        <h2>Skills</h2>
+        <p>
+          Javascript, HTML5, CSS, Node.js, React, express, ejs, mongodb,
+          mongoose, jQuery, Git, Github
+        </p>
+      </div>
+    );
+  }
+}
+
+class Projects extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    return (
+      <div className="tab-pane" id="Projects">
+        <h2>Projects</h2>
+        <a
+          href="https://github.com/Hantasmagoria/Hantasmagoria.github.io/blob/master/documentations/overdoze.md"
+          title="Project 1 for Software Engineering Immersive @ General Assembly.
+                              Platform game developed using HTML5 and Javascript.
+                              Assets used are from opengameart.org"
+        >
+          Overdoze
+        </a>
+        <a
+          href="https://overdozews.herokuapp.com/"
+          title="Project 2 for Software Engineering Immersive @ General Assembly.
+                              Database-enabled website for leaderboard and score tracking.
+                              Inspired by design at osu.ppy.sh"
+        >
+          ODDB
+        </a>
+        <a
+          href="https://github.com/Hantasmagoria/UnrehearsedAntihistoricalValedictorian"
+          title="Discord bot catered for the needs of the Invictus discord server. 
+                              Uses the discord.js library, hosted on heroku."
+        >
+          Shana the Discord Bot
+        </a>
+
+        {/* <a href="#">Project 4</a>
+                <a href="#">Project 5</a>
+                <a href="#">Project 6</a>
+                <a href="#">Project 7</a>
+                <a href="#">Project 8</a>
+                <a href="#">Project 9</a>
+                <a href="#">Project 10</a>
+                <a href="#">Project 11</a>  */}
+
+        <a
+          href="https://github.com/Hantasmagoria/mcojn"
+          title="A Javascript Bookmarklet for restructuring the data in the DOM within the facility booking system in MCOnline.sg"
+        >
+          MCOnline JN script
+        </a>
+      </div>
+    );
+  }
+}
+
+class Contact extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    return (
+      <div className="tab-pane" id="Contact">
+        <h2>Contact</h2>
+        <p>
+          <a href="mailto:farhan.daud.hyperfusion@gmail.com">
+            farhan.daud.hyperfusion@gmail.com
+          </a>
+        </p>
+      </div>
+    );
+  }
+}
+
+// ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄
+// ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+// ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌
+// ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌
+// ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌
+// ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+// ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀
+// ▐░▌       ▐░▌▐░▌          ▐░▌
+// ▐░▌       ▐░▌▐░▌          ▐░▌
+// ▐░▌       ▐░▌▐░▌          ▐░▌
+//  ▀         ▀  ▀            ▀
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mainEntry: 1,
+      currentUser: ""
+    };
+  }
+
+  explode = () => {
+    if (this.state.mainEntry) {
+      this.setState({ mainEntry: 0 });
+    } else {
+      this.setState({ mainEntry: 1 });
+    }
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        {this.state.mainEntry ? (
+          <div
+            className="col-md-12 d-flex align-items-center justify-content-center"
+            id="leftHalf"
+          >
+            <Leftside mainEntry={this.state.mainEntry} explode={this.explode} />
+          </div>
+        ) : (
+          <div
+            className="col-md-6 d-flex align-items-center justify-content-center"
+            id="leftHalf"
+          >
+            <Leftside mainEntry={this.state.mainEntry} explode={this.explode} />
+          </div>
+        )}
+
+        {this.state.mainEntry ? null : (
+          <div className="col-md-6 d-flex" id="rightHalf">
+            <Rightside mainEntry={this.state.mainEntry} />
+          </div>
+        )}
+      </React.Fragment>
+    );
+  }
+}
+ReactDOM.render(<App />, document.getElementById("root"));
