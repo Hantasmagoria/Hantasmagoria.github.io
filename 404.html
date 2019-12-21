@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="./css/style.css" />
     <title>Portfolio of Farhan(Hantasmagoria)</title>
     <script>
-      document.addEventListener("click", musicPlay);
       window.onload = () => {
         document.body.style.backgroundImage =
           "url('documentations/media/404/bg.jpg')";
@@ -25,6 +24,7 @@
         document.getElementById("lostMusic").play();
         document.removeEventListener("click", musicPlay);
       };
+      document.addEventListener("click", musicPlay);
       redir = () => {
         setTimeout(() => {
           window.history.back();
