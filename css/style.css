@@ -13,6 +13,7 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #101214;
   color: #7a7c80;
+  height: 100vh;
 }
 
 .jumbotron {
@@ -34,4 +35,12 @@ h2 {
 a {
   color: #836856;
   text-decoration: none;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: contents;
 }
