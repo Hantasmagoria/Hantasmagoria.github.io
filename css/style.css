@@ -27,6 +27,10 @@ h2,
   color: #92f6de;
 }
 
+h2 {
+  user-select: none;
+}
+
 a {
   color: #836856;
   text-decoration: none;
