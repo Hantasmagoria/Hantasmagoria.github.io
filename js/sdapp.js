@@ -14,36 +14,34 @@ class Leftside extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mainEntry: this.props.mainEntry
+      sideEntry: this.props.sideEntry
     };
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.mainEntry != this.props.mainEntry) {
-      this.setState({ mainEntry: this.props.mainEntry });
+    if (prevProps.sideEntry != this.props.sideEntry) {
+      this.setState({ sideEntry: this.props.sideEntry });
     }
   }
 
   render() {
     return (
-      <div onClick={this.state.mainEntry ? this.props.explode : () => {}}>
-        {this.state.mainEntry ? (
-          <h1 onClick={this.props.explode} className="text-center">
+      <div onClick={this.props.explode}>
+        {this.state.sideEntry ? (
+          <h1 className="text-center">
             <i className="fas fa-code fa-5x white"></i>
           </h1>
         ) : (
-          <h6 onClick={this.props.explode}>
+          <h6>
             <i className="fas fa-code fa-5x white"></i>
           </h6>
         )}
-        {this.state.mainEntry ? (
-          <h2 onClick={this.props.explode} className="display-1 nosel1">
-            Farhan Bin Daud
-          </h2>
+        {this.state.sideEntry ? (
+          <h2 className="display-1 nosel1">Farhan Bin Daud</h2>
         ) : (
           <h2>Farhan Bin Daud</h2>
         )}
-        {this.state.mainEntry ? (
+        {this.state.sideEntry ? (
           <p className="display-3 nosel1">Singapore</p>
         ) : (
           <p>Singapore</p>
@@ -51,7 +49,7 @@ class Leftside extends React.Component {
         <a href="https://www.linkedin.com/in/hantasmagoria/">
           <i
             className={
-              this.state.mainEntry
+              this.state.sideEntry
                 ? "fab fa-linkedin fa-4x"
                 : "fab fa-linkedin fa-2x"
             }
@@ -60,7 +58,7 @@ class Leftside extends React.Component {
         <a href="https://github.com/Hantasmagoria/">
           <i
             className={
-              this.state.mainEntry
+              this.state.sideEntry
                 ? "fab fa-github fa-4x"
                 : "fab fa-github fa-2x"
             }
@@ -68,6 +66,18 @@ class Leftside extends React.Component {
         </a>
       </div>
     );
+  }
+}
+
+class Puzzle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isSolved: this.props.isSolved
+    };
+  }
+  render() {
+    return;
   }
 }
 
@@ -87,13 +97,13 @@ class Rightside extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mainEntry: this.props.mainEntry
+      sideEntry: this.props.sideEntry
     };
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.mainEntry != this.props.mainEntry) {
-      this.state.mainEntry = this.props.mainEntry;
+    if (prevProps.sideEntry != this.props.sideEntry) {
+      this.state.sideEntry = this.props.sideEntry;
     }
   }
 
@@ -143,7 +153,7 @@ class TabContent extends React.Component {
 
   render() {
     return (
-      <div className="tab-content h-100">
+      <div className="tab-content">
         <About />
         <Projects />
         <Contact />
@@ -271,57 +281,41 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mainEntry: 1,
+      sideEntry: 1,
       currentUser: ""
     };
   }
 
   explode = () => {
-    if (this.state.mainEntry) {
-      this.setState({ mainEntry: 0 });
+    if (this.state.sideEntry) {
+      this.setState({ sideEntry: 0 });
     } else {
-      this.setState({ mainEntry: 1 });
+      this.setState({ sideEntry: 1 });
     }
   };
-
-  componentDidMount() {
-    fetch("https://api.ipify.org?format=json")
-      .then(response => {
-        return response.json();
-      })
-      .then(whoami => {
-        this.setState({ currentUser: whoami.ip });
-      });
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.currentUser != this.state.currentUser) {
-      console.log(this.state.currentUser);
-    }
-  }
 
   render() {
     return (
       <React.Fragment>
-        {this.state.mainEntry ? (
+        {this.state.sideEntry ? (
           <div
             className="col-md-12 d-flex align-items-center justify-content-center"
             id="leftHalf"
           >
-            <Leftside mainEntry={this.state.mainEntry} explode={this.explode} />
+            <Leftside sideEntry={this.state.sideEntry} explode={this.explode} />
           </div>
         ) : (
           <div
-            className="col-md-4 d-flex align-items-center justify-content-center"
+            className="col-md-6 d-flex align-items-center justify-content-center"
             id="leftHalf"
           >
-            <Leftside mainEntry={this.state.mainEntry} explode={this.explode} />
+            <Leftside sideEntry={this.state.sideEntry} explode={this.explode} />
           </div>
         )}
 
-        {this.state.mainEntry ? null : (
-          <div className="col-md-8" id="rightHalf">
-            <Rightside mainEntry={this.state.mainEntry} />
+        {this.state.sideEntry ? null : (
+          <div className="col-md-6 d-flex" id="rightHalf">
+            <Rightside sideEntry={this.state.sideEntry} />
           </div>
         )}
       </React.Fragment>
