@@ -87,7 +87,9 @@ class Rightside extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mainEntry: this.props.mainEntry
+      mainEntry: this.props.mainEntry,
+      overhaulProject: this.props.overhaulProject,
+      projects: []
     };
   }
 
@@ -95,12 +97,29 @@ class Rightside extends React.Component {
     if (prevProps.mainEntry != this.props.mainEntry) {
       this.state.mainEntry = this.props.mainEntry;
     }
+    if (prevProps.overhaulProject != this.props.overhaulProject) {
+      //todo
+    }
   }
+
+  componentDidMount() {
+    this.fetchProj();
+  }
+
+  fetchProj = async () => {
+    return fetch("https://expansiondb.herokuapp.com/")
+      .then(response => {
+        return response.json();
+      })
+      .then(jsonedResult => {
+        this.setState({ projects: [...jsonedResult] });
+      });
+  };
 
   render() {
     return (
       <div className="tabbable">
-        <NavTabs />
+        <NavTabs projectOverhaul={this.props.projectOverhaul} />
         <TabContent />
       </div>
     );
@@ -116,17 +135,35 @@ class NavTabs extends React.Component {
     return (
       <ul className="nav nav-tabs" id="tableau" role="tablist">
         <li className="nav-item">
-          <a className="nav-link active show" href="#About" data-toggle="tab">
+          <a
+            id="navTabAbout"
+            className="nav-link active show"
+            href="#About"
+            data-toggle="tab"
+            onClick={this.props.projectOverhaul}
+          >
             About Me
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#Projects" data-toggle="tab">
+          <a
+            id="navTabProj"
+            className="nav-link"
+            href="#Projects"
+            data-toggle="tab"
+            onClick={this.props.projectOverhaul}
+          >
             Projects
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#Contact" data-toggle="tab">
+          <a
+            id="navTabContact"
+            className="nav-link"
+            href="#Contact"
+            data-toggle="tab"
+            onClick={this.props.projectOverhaul}
+          >
             Contact Info
           </a>
         </li>
@@ -272,6 +309,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       mainEntry: 1,
+      overhaulProject: 0,
       currentUser: ""
     };
   }
@@ -296,9 +334,47 @@ class App extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.currentUser != this.state.currentUser) {
-      console.log(this.state.currentUser);
+      fetch("https://expansiondb.herokuapp.com/users", {
+        body: JSON.stringify({
+          ip: this.state.currentUser
+        }),
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        }
+      });
     }
   }
+
+  projectOverhaul = () => {
+    let selfTab = event.target.id;
+
+    switch (selfTab) {
+      case "navTabAbout":
+        this.setState({
+          overhaulProject: 0
+        });
+        break;
+      case "navTabProj":
+        this.setState({
+          overhaulProject: 1
+        });
+        break;
+      case "navTabContact":
+        this.setState({
+          overhaulProject: 0
+        });
+        break;
+      default:
+        this.setState({
+          overhaulProject: 0
+        });
+    }
+    // this.setState({
+    //   overhaulProject: isProj
+    // });
+  };
 
   render() {
     return (
@@ -310,7 +386,7 @@ class App extends React.Component {
           >
             <Leftside mainEntry={this.state.mainEntry} explode={this.explode} />
           </div>
-        ) : (
+        ) : this.state.overhaulProject ? null : (
           <div
             className="col-md-4 d-flex align-items-center justify-content-center"
             id="leftHalf"
@@ -319,9 +395,19 @@ class App extends React.Component {
           </div>
         )}
 
-        {this.state.mainEntry ? null : (
+        {this.state.mainEntry ? null : this.state.overhaulProject ? (
+          <div className="col-md-12" id="rightHalf">
+            <Rightside
+              mainEntry={this.state.mainEntry}
+              projectOverhaul={this.projectOverhaul}
+            />
+          </div>
+        ) : (
           <div className="col-md-8" id="rightHalf">
-            <Rightside mainEntry={this.state.mainEntry} />
+            <Rightside
+              mainEntry={this.state.mainEntry}
+              projectOverhaul={this.projectOverhaul}
+            />
           </div>
         )}
       </React.Fragment>

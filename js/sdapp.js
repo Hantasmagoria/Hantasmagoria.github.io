@@ -1,151 +1,111 @@
-//   ▄            ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄       ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄
-//  ▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌
-//  ▐░▌          ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀      ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀
-//  ▐░▌          ▐░▌          ▐░▌               ▐░▌          ▐░▌               ▐░▌     ▐░▌       ▐░▌▐░▌
-//  ▐░▌          ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄      ▐░▌          ▐░█▄▄▄▄▄▄▄▄▄      ▐░▌     ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄
-//  ▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░▌          ▐░░░░░░░░░░░▌     ▐░▌     ▐░▌       ▐░▌▐░░░░░░░░░░░▌
-//  ▐░▌          ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀      ▐░▌           ▀▀▀▀▀▀▀▀▀█░▌     ▐░▌     ▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀
-//  ▐░▌          ▐░▌          ▐░▌               ▐░▌                    ▐░▌     ▐░▌     ▐░▌       ▐░▌▐░▌
-//  ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌               ▐░▌           ▄▄▄▄▄▄▄▄▄█░▌ ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄
-//  ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌               ▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌
-//   ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀                 ▀            ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀
+//   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄               ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄
+//  ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌             ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+//  ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌ ▐░▌           ▐░▌ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌
+//  ▐░▌          ▐░▌       ▐░▌  ▐░▌         ▐░▌  ▐░▌          ▐░▌       ▐░▌
+//  ▐░▌          ▐░▌       ▐░▌   ▐░▌       ▐░▌   ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌
+//  ▐░▌          ▐░▌       ▐░▌    ▐░▌     ▐░▌    ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+//  ▐░▌          ▐░▌       ▐░▌     ▐░▌   ▐░▌     ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀█░█▀▀
+//  ▐░▌          ▐░▌       ▐░▌      ▐░▌ ▐░▌      ▐░▌          ▐░▌     ▐░▌
+//  ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌       ▐░▐░▌       ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌      ▐░▌
+//  ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌        ▐░▌        ▐░░░░░░░░░░░▌▐░▌       ▐░▌
+//   ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀          ▀          ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀
 
-class Leftside extends React.Component {
+class Cover extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        {this.props.loggedIn ? (
+          <SideNav />
+        ) : (
+          <LoginScreen
+            loggedIn={this.props.loggedIn}
+            loginLogout={this.props.loginLogout}
+          />
+        )}
+      </React.Fragment>
+    );
+  }
+}
+
+class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sideEntry: this.props.sideEntry
+      loggedIn: this.props.loggedIn,
+      uname: "",
+      upass: ""
     };
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.sideEntry != this.props.sideEntry) {
-      this.setState({ sideEntry: this.props.sideEntry });
-    }
-  }
+  handleChange = event => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.loginLogout(this.state.uname, this.state.upass);
+  };
 
   render() {
     return (
-      <div onClick={this.props.explode}>
-        {this.state.sideEntry ? (
-          <h1 className="text-center">
-            <i className="fas fa-code fa-5x white"></i>
-          </h1>
-        ) : (
-          <h6>
-            <i className="fas fa-code fa-5x white"></i>
-          </h6>
-        )}
-        {this.state.sideEntry ? (
-          <h2 className="display-1 nosel1">Farhan Bin Daud</h2>
-        ) : (
-          <h2>Farhan Bin Daud</h2>
-        )}
-        {this.state.sideEntry ? (
-          <p className="display-3 nosel1">Singapore</p>
-        ) : (
-          <p>Singapore</p>
-        )}
-        <a href="https://www.linkedin.com/in/hantasmagoria/">
-          <i
-            className={
-              this.state.sideEntry
-                ? "fab fa-linkedin fa-4x"
-                : "fab fa-linkedin fa-2x"
-            }
-          ></i>
-        </a>
-        <a href="https://github.com/Hantasmagoria/">
-          <i
-            className={
-              this.state.sideEntry
-                ? "fab fa-github fa-4x"
-                : "fab fa-github fa-2x"
-            }
-          ></i>
-        </a>
+      <div className="card card-login mx-auto text-center bg-dark">
+        <div className="card-header mx-auto bg-dark">
+          <span className="logo_title mt-5"> Access Restricted </span>
+        </div>
+        <div className="card-body">
+          <form onSubmit={this.handleSubmit}>
+            <div className="input-group form-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text">
+                  <i className="fas fa-user"></i>
+                </span>
+              </div>
+              <input
+                type="text"
+                placeholder="Identity"
+                className="form-control"
+                id="Username"
+                name="uname"
+                value={this.state.uname}
+                onChange={this.handleChange}
+              />
+              <div className="input-group-prepend">
+                <span className="input-group-text">
+                  <i className="fas fa-key"></i>
+                </span>
+              </div>
+              <input
+                type="password"
+                placeholder="Secret Code"
+                className="form-control"
+                id="Password"
+                name="upass"
+                value={this.state.upass}
+                onChange={this.handleChange}
+              />
+              <input
+                type="submit"
+                className="btn login_btn btn-outline-danger"
+                value="Submit"
+              />
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
 }
 
-class Puzzle extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isSolved: this.props.isSolved
-    };
-  }
-  render() {
-    return;
-  }
-}
-
-//  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄       ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄
-// ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌
-// ▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░▌       ▐░▌ ▀▀▀▀█░█▀▀▀▀      ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀
-// ▐░▌       ▐░▌     ▐░▌     ▐░▌          ▐░▌       ▐░▌     ▐░▌          ▐░▌               ▐░▌     ▐░▌       ▐░▌▐░▌
-// ▐░█▄▄▄▄▄▄▄█░▌     ▐░▌     ▐░▌ ▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌     ▐░▌          ▐░█▄▄▄▄▄▄▄▄▄      ▐░▌     ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄
-// ▐░░░░░░░░░░░▌     ▐░▌     ▐░▌▐░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░▌          ▐░░░░░░░░░░░▌     ▐░▌     ▐░▌       ▐░▌▐░░░░░░░░░░░▌
-// ▐░█▀▀▀▀█░█▀▀      ▐░▌     ▐░▌ ▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌     ▐░▌           ▀▀▀▀▀▀▀▀▀█░▌     ▐░▌     ▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀
-// ▐░▌     ▐░▌       ▐░▌     ▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌                    ▐░▌     ▐░▌     ▐░▌       ▐░▌▐░▌
-// ▐░▌      ▐░▌  ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░▌       ▐░▌     ▐░▌           ▄▄▄▄▄▄▄▄▄█░▌ ▄▄▄▄█░█▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄
-// ▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌     ▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌
-//  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀       ▀            ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀
-
-class Rightside extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sideEntry: this.props.sideEntry
-    };
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.sideEntry != this.props.sideEntry) {
-      this.state.sideEntry = this.props.sideEntry;
-    }
-  }
-
-  render() {
-    return (
-      <div className="tabbable">
-        <NavTabs />
-        <TabContent />
-      </div>
-    );
-  }
-}
-
-class NavTabs extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <ul className="nav nav-tabs" id="tableau" role="tablist">
-        <li className="nav-item">
-          <a className="nav-link active show" href="#About" data-toggle="tab">
-            About Me
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#Projects" data-toggle="tab">
-            Projects
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#Contact" data-toggle="tab">
-            Contact Info
-          </a>
-        </li>
-      </ul>
-    );
-  }
-}
-
-class TabContent extends React.Component {
+class SideNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -153,115 +113,33 @@ class TabContent extends React.Component {
 
   render() {
     return (
-      <div className="tab-content">
-        <About />
-        <Projects />
-        <Contact />
+      <div>
+        <a href="../">Back to Home</a>
       </div>
     );
   }
 }
 
-class About extends React.Component {
+//  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄
+// ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░▌      ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░▌      ▐░▌▐░░░░░░░░░░░▌
+// ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░▌░▌     ▐░▌ ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░▌░▌     ▐░▌ ▀▀▀▀█░█▀▀▀▀
+// ▐░▌          ▐░▌       ▐░▌▐░▌▐░▌    ▐░▌     ▐░▌     ▐░▌          ▐░▌▐░▌    ▐░▌     ▐░▌
+// ▐░▌          ▐░▌       ▐░▌▐░▌ ▐░▌   ▐░▌     ▐░▌     ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌ ▐░▌   ▐░▌     ▐░▌
+// ▐░▌          ▐░▌       ▐░▌▐░▌  ▐░▌  ▐░▌     ▐░▌     ▐░░░░░░░░░░░▌▐░▌  ▐░▌  ▐░▌     ▐░▌
+// ▐░▌          ▐░▌       ▐░▌▐░▌   ▐░▌ ▐░▌     ▐░▌     ▐░█▀▀▀▀▀▀▀▀▀ ▐░▌   ▐░▌ ▐░▌     ▐░▌
+// ▐░▌          ▐░▌       ▐░▌▐░▌    ▐░▌▐░▌     ▐░▌     ▐░▌          ▐░▌    ▐░▌▐░▌     ▐░▌
+// ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░▌     ▐░▐░▌     ▐░▌     ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌     ▐░▐░▌     ▐░▌
+// ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌      ▐░░▌     ▐░▌     ▐░░░░░░░░░░░▌▐░▌      ▐░░▌     ▐░▌
+//  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀        ▀▀       ▀       ▀▀▀▀▀▀▀▀▀▀▀  ▀        ▀▀       ▀
+
+class Content extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
   render() {
-    return (
-      <div className="tab-pane active" id="About">
-        <h2>About</h2>
-        <p>
-          With the techniques, discipline, and principles learned during my time
-          in National Service, I shed light on how frameworks can facilitate the
-          agglomeration of generations of computer science and computation to
-          solve and create.
-          <br />
-          My extensive background in technology allows me to generate
-          programmatically applicable solutions, and the software development
-          and software engineering skills acquired during my Software
-          Engineering Immersive course in General Assembly bring these solutions
-          to life.
-        </p>
-        <h2>Skills</h2>
-        <p>
-          Javascript, HTML5, CSS, Node.js, React, express, ejs, mongodb,
-          mongoose, jQuery, Git, Github
-        </p>
-      </div>
-    );
-  }
-}
-
-class Projects extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <div className="tab-pane" id="Projects">
-        <h2>Projects</h2>
-        <a
-          href="https://github.com/Hantasmagoria/Hantasmagoria.github.io/blob/master/documentations/overdoze.md"
-          title="Project 1 for Software Engineering Immersive @ General Assembly.
-                                Platform game developed using HTML5 and Javascript.
-                                Assets used are from opengameart.org"
-        >
-          Overdoze
-        </a>
-        <a
-          href="https://overdozews.herokuapp.com/"
-          title="Project 2 for Software Engineering Immersive @ General Assembly.
-                                Database-enabled website for leaderboard and score tracking.
-                                Inspired by design at osu.ppy.sh"
-        >
-          ODDB
-        </a>
-        <a
-          href="https://github.com/Hantasmagoria/UnrehearsedAntihistoricalValedictorian"
-          title="Discord bot catered for the needs of the Invictus discord server. 
-                                Uses the discord.js library, hosted on heroku."
-        >
-          Shana the Discord Bot
-        </a>
-
-        {/* <a href="#">Project 4</a>
-                  <a href="#">Project 5</a>
-                  <a href="#">Project 6</a>
-                  <a href="#">Project 7</a>
-                  <a href="#">Project 8</a>
-                  <a href="#">Project 9</a>
-                  <a href="#">Project 10</a>
-                  <a href="#">Project 11</a>  */}
-
-        <a
-          href="https://github.com/Hantasmagoria/mcojn"
-          title="A Javascript Bookmarklet for restructuring the data in the DOM within the facility booking system in MCOnline.sg"
-        >
-          MCOnline JN script
-        </a>
-      </div>
-    );
-  }
-}
-
-class Contact extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <div className="tab-pane" id="Contact">
-        <h2>Contact</h2>
-        <p>
-          <a href="mailto:farhan.daud.hyperfusion@gmail.com">
-            farhan.daud.hyperfusion@gmail.com
-          </a>
-        </p>
-      </div>
-    );
+    return "";
   }
 }
 
@@ -281,43 +159,41 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sideEntry: 1,
-      currentUser: ""
+      loggedIn: 0,
+      user: undefined
     };
   }
 
-  explode = () => {
-    if (this.state.sideEntry) {
-      this.setState({ sideEntry: 0 });
-    } else {
-      this.setState({ sideEntry: 1 });
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.user != undefined && !this.state.loggedIn) {
+      this.setState({ loggedIn: true });
     }
+  }
+
+  loginLogout = async (uname, upass) => {
+    return fetch("https://expansiondb.herokuapp.com/login/", {
+      body: JSON.stringify({
+        uname: uname,
+        upass: upass
+      }),
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(jsonRes => {
+        this.setState({ user: jsonRes[0] });
+      });
   };
 
   render() {
     return (
       <React.Fragment>
-        {this.state.sideEntry ? (
-          <div
-            className="col-md-12 d-flex align-items-center justify-content-center"
-            id="leftHalf"
-          >
-            <Leftside sideEntry={this.state.sideEntry} explode={this.explode} />
-          </div>
-        ) : (
-          <div
-            className="col-md-6 d-flex align-items-center justify-content-center"
-            id="leftHalf"
-          >
-            <Leftside sideEntry={this.state.sideEntry} explode={this.explode} />
-          </div>
-        )}
-
-        {this.state.sideEntry ? null : (
-          <div className="col-md-6 d-flex" id="rightHalf">
-            <Rightside sideEntry={this.state.sideEntry} />
-          </div>
-        )}
+        <Cover loggedIn={this.state.loggedIn} loginLogout={this.loginLogout} />
       </React.Fragment>
     );
   }
