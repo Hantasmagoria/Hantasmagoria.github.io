@@ -26,25 +26,25 @@ class Leftside extends React.Component {
 
   render() {
     return (
-      <div onClick={this.props.explode}>
-        {/* Placeholder link while I set up my own little MERN stack web server at home.*/}
-
+      <div onClick={this.state.mainEntry ? this.props.explode : () => {}}>
         {this.state.mainEntry ? (
-          <h1 className="text-center">
+          <h1 onClick={this.props.explode} className="text-center">
             <i className="fas fa-code fa-5x white"></i>
           </h1>
         ) : (
-          <h6>
+          <h6 onClick={this.props.explode}>
             <i className="fas fa-code fa-5x white"></i>
           </h6>
         )}
         {this.state.mainEntry ? (
-          <h2 className="display-1">Farhan Bin Daud</h2>
+          <h2 onClick={this.props.explode} className="display-1 nosel1">
+            Farhan Bin Daud
+          </h2>
         ) : (
           <h2>Farhan Bin Daud</h2>
         )}
         {this.state.mainEntry ? (
-          <p className="display-3">Singapore</p>
+          <p className="display-3 nosel1">Singapore</p>
         ) : (
           <p>Singapore</p>
         )}
@@ -71,7 +71,7 @@ class Leftside extends React.Component {
   }
 }
 
-// ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄       ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄
+//  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄       ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄
 // ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌
 // ▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░▌       ▐░▌ ▀▀▀▀█░█▀▀▀▀      ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀
 // ▐░▌       ▐░▌     ▐░▌     ▐░▌          ▐░▌       ▐░▌     ▐░▌          ▐░▌               ▐░▌     ▐░▌       ▐░▌▐░▌
@@ -87,7 +87,9 @@ class Rightside extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mainEntry: this.props.mainEntry
+      mainEntry: this.props.mainEntry,
+      overhaulProject: this.props.overhaulProject,
+      projects: []
     };
   }
 
@@ -95,12 +97,29 @@ class Rightside extends React.Component {
     if (prevProps.mainEntry != this.props.mainEntry) {
       this.state.mainEntry = this.props.mainEntry;
     }
+    if (prevProps.overhaulProject != this.props.overhaulProject) {
+      //todo
+    }
   }
+
+  componentDidMount() {
+    this.fetchProj();
+  }
+
+  fetchProj = async () => {
+    return fetch("https://expansiondb.herokuapp.com/")
+      .then(response => {
+        return response.json();
+      })
+      .then(jsonedResult => {
+        this.setState({ projects: [...jsonedResult] });
+      });
+  };
 
   render() {
     return (
       <div className="tabbable">
-        <NavTabs />
+        <NavTabs projectOverhaul={this.props.projectOverhaul} />
         <TabContent />
       </div>
     );
@@ -116,17 +135,35 @@ class NavTabs extends React.Component {
     return (
       <ul className="nav nav-tabs" id="tableau" role="tablist">
         <li className="nav-item">
-          <a className="nav-link active show" href="#About" data-toggle="tab">
+          <a
+            id="navTabAbout"
+            className="nav-link active show"
+            href="#About"
+            data-toggle="tab"
+            onClick={this.props.projectOverhaul}
+          >
             About Me
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#Projects" data-toggle="tab">
+          <a
+            id="navTabProj"
+            className="nav-link"
+            href="#Projects"
+            data-toggle="tab"
+            onClick={this.props.projectOverhaul}
+          >
             Projects
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#Contact" data-toggle="tab">
+          <a
+            id="navTabContact"
+            className="nav-link"
+            href="#Contact"
+            data-toggle="tab"
+            onClick={this.props.projectOverhaul}
+          >
             Contact Info
           </a>
         </li>
@@ -143,7 +180,7 @@ class TabContent extends React.Component {
 
   render() {
     return (
-      <div className="tab-content">
+      <div className="tab-content h-100">
         <About />
         <Projects />
         <Contact />
@@ -195,35 +232,35 @@ class Projects extends React.Component {
         <a
           href="https://github.com/Hantasmagoria/Hantasmagoria.github.io/blob/master/documentations/overdoze.md"
           title="Project 1 for Software Engineering Immersive @ General Assembly.
-                              Platform game developed using HTML5 and Javascript.
-                              Assets used are from opengameart.org"
+                                Platform game developed using HTML5 and Javascript.
+                                Assets used are from opengameart.org"
         >
           Overdoze
         </a>
         <a
           href="https://overdozews.herokuapp.com/"
           title="Project 2 for Software Engineering Immersive @ General Assembly.
-                              Database-enabled website for leaderboard and score tracking.
-                              Inspired by design at osu.ppy.sh"
+                                Database-enabled website for leaderboard and score tracking.
+                                Inspired by design at osu.ppy.sh"
         >
           ODDB
         </a>
         <a
           href="https://github.com/Hantasmagoria/UnrehearsedAntihistoricalValedictorian"
           title="Discord bot catered for the needs of the Invictus discord server. 
-                              Uses the discord.js library, hosted on heroku."
+                                Uses the discord.js library, hosted on heroku."
         >
           Shana the Discord Bot
         </a>
 
         {/* <a href="#">Project 4</a>
-                <a href="#">Project 5</a>
-                <a href="#">Project 6</a>
-                <a href="#">Project 7</a>
-                <a href="#">Project 8</a>
-                <a href="#">Project 9</a>
-                <a href="#">Project 10</a>
-                <a href="#">Project 11</a>  */}
+                  <a href="#">Project 5</a>
+                  <a href="#">Project 6</a>
+                  <a href="#">Project 7</a>
+                  <a href="#">Project 8</a>
+                  <a href="#">Project 9</a>
+                  <a href="#">Project 10</a>
+                  <a href="#">Project 11</a>  */}
 
         <a
           href="https://github.com/Hantasmagoria/mcojn"
@@ -255,7 +292,7 @@ class Contact extends React.Component {
   }
 }
 
-// ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄
+//  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄
 // ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
 // ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌
 // ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌
@@ -272,6 +309,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       mainEntry: 1,
+      overhaulProject: 0,
       currentUser: ""
     };
   }
@@ -284,6 +322,60 @@ class App extends React.Component {
     }
   };
 
+  componentDidMount() {
+    fetch("https://api.ipify.org?format=json")
+      .then(response => {
+        return response.json();
+      })
+      .then(whoami => {
+        this.setState({ currentUser: whoami.ip });
+      });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.currentUser != this.state.currentUser) {
+      fetch("https://expansiondb.herokuapp.com/users", {
+        body: JSON.stringify({
+          ip: this.state.currentUser
+        }),
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        }
+      });
+    }
+  }
+
+  projectOverhaul = () => {
+    let selfTab = event.target.id;
+
+    switch (selfTab) {
+      case "navTabAbout":
+        this.setState({
+          overhaulProject: 0
+        });
+        break;
+      case "navTabProj":
+        this.setState({
+          overhaulProject: 1
+        });
+        break;
+      case "navTabContact":
+        this.setState({
+          overhaulProject: 0
+        });
+        break;
+      default:
+        this.setState({
+          overhaulProject: 0
+        });
+    }
+    // this.setState({
+    //   overhaulProject: isProj
+    // });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -294,18 +386,28 @@ class App extends React.Component {
           >
             <Leftside mainEntry={this.state.mainEntry} explode={this.explode} />
           </div>
-        ) : (
+        ) : this.state.overhaulProject ? null : (
           <div
-            className="col-md-6 d-flex align-items-center justify-content-center"
+            className="col-md-4 d-flex align-items-center justify-content-center"
             id="leftHalf"
           >
             <Leftside mainEntry={this.state.mainEntry} explode={this.explode} />
           </div>
         )}
 
-        {this.state.mainEntry ? null : (
-          <div className="col-md-6 d-flex" id="rightHalf">
-            <Rightside mainEntry={this.state.mainEntry} />
+        {this.state.mainEntry ? null : this.state.overhaulProject ? (
+          <div className="col-md-12" id="rightHalf">
+            <Rightside
+              mainEntry={this.state.mainEntry}
+              projectOverhaul={this.projectOverhaul}
+            />
+          </div>
+        ) : (
+          <div className="col-md-8" id="rightHalf">
+            <Rightside
+              mainEntry={this.state.mainEntry}
+              projectOverhaul={this.projectOverhaul}
+            />
           </div>
         )}
       </React.Fragment>
