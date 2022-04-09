@@ -1,0 +1,24 @@
+/* global */
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+html {
+  height: 100%;
+}
+
+body {
+  display: table;
+  position: absolute;
+  height: 90%;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  color: #7a7c80;
+  /* height: 100vh; */
+}
+
+.jumbotron {
+  height: 100vh;
+  margin-bottom: auto;
+  display: table-cell;
+  vertical-align: middle;
+  background-color: transparent !important;
+}
