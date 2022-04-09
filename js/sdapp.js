@@ -38,19 +38,19 @@ class LoginScreen extends React.Component {
     this.state = {
       loggedIn: this.props.loggedIn,
       uname: "",
-      upass: ""
+      upass: "",
     };
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     const value = event.target.value;
     const name = event.target.name;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.props.loginLogout(this.state.uname, this.state.upass);
   };
@@ -115,6 +115,7 @@ class SideNav extends React.Component {
     return (
       <div>
         <a href="../">Back to Home</a>
+        {/* todo: create the actual content for the sidedoor page */}
       </div>
     );
   }
@@ -160,7 +161,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       loggedIn: 0,
-      user: undefined
+      user: undefined,
     };
   }
 
@@ -174,18 +175,18 @@ class App extends React.Component {
     return fetch("https://expansiondb.herokuapp.com/login/", {
       body: JSON.stringify({
         uname: uname,
-        upass: upass
+        upass: upass,
       }),
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     })
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(jsonRes => {
+      .then((jsonRes) => {
         this.setState({ user: jsonRes[0] });
       });
   };

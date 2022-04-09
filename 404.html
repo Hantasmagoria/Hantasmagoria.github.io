@@ -4,19 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- favicon -->
     <link rel="icon" href="favicon.png" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- css -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/documentations/media/404/style.css" />
+    <!-- bootstrap js -->
+    <script src="/js/jq.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
     <title>Portfolio of Farhan(Hantasmagoria)</title>
     <script>
       window.onload = () => {
         document.body.style.backgroundImage =
-          "url('documentations/media/404/bg.jpg')";
+          "url('/documentations/media/404/bg.jpg')";
         document.body.style.backgroundSize = "cover";
         redir();
       };
@@ -28,20 +30,25 @@
       redir = () => {
         setTimeout(() => {
           window.history.back();
-        }, 20000);
+        }, 12000);
       };
     </script>
   </head>
   <body>
     <audio id="lostMusic" loop>
-      <source src="documentations/media/404/lost.mp3" />
+      <source src="/documentations/media/404/lost.mp3" />
     </audio>
-    <div class="grid-2">
-      <div class="section-1">
-        <h1>We all get a little lost sometimes.</h1>
-      </div>
-      <div class="section-2">
-        <p>It's okay to be as lost as you are right now.</p>
+    <div class="jumbotron d-flex align-items-center">
+      <div class="container-fluid flex-grow-1">
+        <div class="row p-2 flex-grow-1">
+          <div class="col-md-6 text-center">
+            <h1>We all get a little lost sometimes.</h1>
+          </div>
+          <div class="col-md-6 justify-content-center align-items-center">
+            <br /><br />
+            <p>It's okay to be as lost as you are right now.</p>
+          </div>
+        </div>
       </div>
     </div>
   </body>
