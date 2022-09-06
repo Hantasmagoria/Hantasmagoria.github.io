@@ -131,47 +131,47 @@ const tabAbout = {
   ],
 };
 
-const tabProjects = {
-  active: false,
-  projects: [
-    {
-      id: "projects1",
-      title: "Overdoze",
-      url: "https://github.com/Hantasmagoria/Hantasmagoria.github.io/blob/master/documentations/overdoze.md",
-      banner:
-        "https://drive.google.com/uc?export=view&id=1mFB_8x9sptp29KYKMPeNftkwxzCLNIRX",
-      description:
-        "Project 1 for Software Engineering Immersive @ General Assembly. Platform game developed using HTML5 and Javascript. Assets used are from opengameart.org",
-    },
-    {
-      id: "projects2",
-      title: "ODDB",
-      url: "https://github.com/Hantasmagoria/ODDB",
-      banner:
-        "https://drive.google.com/uc?export=view&id=1L2ugVseyhzWE5J_r7Bfqmig2vtyNUWEp",
-      description:
-        "Project 2 for Software Engineering Immersive @ General Assembly. Data warehouse for leaderboard and score tracking. Inspired by database design at osu.ppy.sh",
-    },
-    {
-      id: "projects3",
-      title: "Shana the Discord Bot",
-      url: "https://github.com/Hantasmagoria/UnrehearsedAntihistoricalValedictorian",
-      banner:
-        "https://drive.google.com/uc?export=view&id=10DX_gjsozQd914f8mpLBvDTZaezm8w2x",
-      description:
-        "Discord bot catered for the needs of the Invictus discord server. Uses the discord.js library, hosted on heroku.",
-    },
-    {
-      id: "projects4",
-      title: "MCOnline JN script",
-      url: "https://github.com/Hantasmagoria/mcojn",
-      banner:
-        "https://drive.google.com/uc?export=view&id=1vcdfdEJXJPnDhUdCFL7jvn5CMrD9d6Cd",
-      description:
-        "A Javascript Bookmarklet for restructuring the data in the DOM within the facility booking system in MCOnline.sg",
-    },
-  ],
-};
+// const tabProjects = {
+//   active: false,
+//   projects: [
+//     {
+//       id: "projects1",
+//       title: "Overdoze",
+//       url: "https://github.com/Hantasmagoria/overdoze",
+//       banner:
+//         "https://drive.google.com/uc?export=view&id=1mFB_8x9sptp29KYKMPeNftkwxzCLNIRX",
+//       description:
+//         "Project 1 for Software Engineering Immersive @ General Assembly. Platform game developed using HTML5 and Javascript. Assets used are from opengameart.org",
+//     },
+//     {
+//       id: "projects2",
+//       title: "ODDB",
+//       url: "https://github.com/Hantasmagoria/ODDB",
+//       banner:
+//         "https://drive.google.com/uc?export=view&id=1L2ugVseyhzWE5J_r7Bfqmig2vtyNUWEp",
+//       description:
+//         "Project 2 for Software Engineering Immersive @ General Assembly. Data warehouse for leaderboard and score tracking. Inspired by database design at osu.ppy.sh",
+//     },
+//     {
+//       id: "projects3",
+//       title: "Shana the Discord Bot",
+//       url: "https://github.com/Hantasmagoria/UnrehearsedAntihistoricalValedictorian",
+//       banner:
+//         "https://drive.google.com/uc?export=view&id=10DX_gjsozQd914f8mpLBvDTZaezm8w2x",
+//       description:
+//         "Discord bot catered for the needs of the Invictus discord server. Uses the discord.js library, hosted on heroku.",
+//     },
+//     {
+//       id: "projects4",
+//       title: "MCOnline JN script",
+//       url: "https://github.com/Hantasmagoria/mcojn",
+//       banner:
+//         "https://drive.google.com/uc?export=view&id=1vcdfdEJXJPnDhUdCFL7jvn5CMrD9d6Cd",
+//       description:
+//         "A Javascript Bookmarklet for restructuring the data in the DOM within the facility booking system in MCOnline.sg",
+//     },
+//   ],
+// };
 
 const tabContact = {
   active: false,

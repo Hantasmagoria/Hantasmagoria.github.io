@@ -129,7 +129,7 @@ class Rightside extends React.Component {
     return (
       <div className="tabbable">
         <NavTabs projectOverhaul={this.props.projectOverhaul} />
-        <TabContent />
+        <TabContent projects={this.state.projects}/>
       </div>
     );
   }
@@ -169,14 +169,14 @@ class NavTabs extends React.Component {
 class TabContent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {projects:this.props.projects};
   }
 
   render() {
     return (
       <div className="tab-content flex-grow-1">
         <About />
-        <Projects />
+        <Projects projects={this.state.projects}/>
         <Contact />
       </div>
     );
@@ -229,7 +229,8 @@ class About extends React.Component {
 class Projects extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { projects: tabProjects.projects };
+    this.state = { projects: this.props.projects };
+    // this.state = { projects: tabProjects.projects };
   }
 
   render() {
@@ -318,7 +319,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch("https://api.ipify.org?format=json")
+    fetch("https://cors-proxy.htmldriven.com/?url=https://api.ipify.org?format=json")
       .then((response) => {
         return response.json();
       })
