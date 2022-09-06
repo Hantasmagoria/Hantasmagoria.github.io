@@ -169,14 +169,14 @@ class NavTabs extends React.Component {
 class TabContent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {projects:this.props.projects};
+    this.state = {};
   }
 
   render() {
     return (
       <div className="tab-content flex-grow-1">
         <About />
-        <Projects projects={this.state.projects}/>
+        <Projects projects={this.props.projects}/>
         <Contact />
       </div>
     );
@@ -229,7 +229,7 @@ class About extends React.Component {
 class Projects extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { projects: this.props.projects };
+    this.state = {};
     // this.state = { projects: tabProjects.projects };
   }
 
@@ -239,7 +239,7 @@ class Projects extends React.Component {
         <div className="tab-pane" id="Projects">
           <h2>Projects</h2>
           <div className="row">
-            {this.state.projects.map((project) => (
+            {this.props.projects.map((project) => (
               <div className="col-md-4" key={project.id}>
                 <div className="card">
                   <div className="card-title">
