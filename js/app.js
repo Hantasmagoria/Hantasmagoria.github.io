@@ -172,11 +172,15 @@ class TabContent extends React.Component {
     this.state = {};
   }
 
+  // componentDidUpdate(prevProps) {
+  //   this.state.projects = 
+  // }
+
   render() {
     return (
       <div className="tab-content flex-grow-1">
         <About />
-        <Projects projects={this.props.projects}/>
+        <Projects {...props}/>
         <Contact />
       </div>
     );
@@ -319,13 +323,13 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch("https://cors-proxy.htmldriven.com/?url=https://api.ipify.org?format=json")
-      .then((response) => {
-        return response.json();
-      })
-      .then((whoami) => {
-        this.setState({ currentUserIP: whoami.ip });
-      });
+    // fetch("https://api.ipify.org?format=json")
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((whoami) => {
+    //     this.setState({ currentUserIP: whoami.ip });
+    //   });
   }
 
   componentDidUpdate(prevProps, prevState) {
