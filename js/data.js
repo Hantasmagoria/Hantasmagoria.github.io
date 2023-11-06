@@ -25,15 +25,13 @@ const tabAbout = {
       id: "about1",
       title: "About",
       content: [
-        `With the techniques, discipline, and principles learned during
-        my time in National Service, I shed light on how frameworks can
-        facilitate the agglomeration of generations of computer science
-        and computation to solve and create.`,
-        `My extensive background in technology allows me to generate programmatically
-        applicable solutions, and the software development and software
-        engineering skills acquired during my Software Engineering
-        Immersive course in General Assembly bring these solutions to
-        life.`,
+        `Hello, I'm Farhan, and I come to the software field with over a decade of experience in the IT sector. Throughout my career, I've had the privilege of working in various roles, including IT Helpdesk, Desktop Support, and Software Engineer. This diverse background has equipped me with a robust technical foundation and a passion for solving complex challenges. My journey into the software field is driven by my fascination with the endless possibilities it offers. I'm excited to leverage my IT expertise to contribute to software development. I believe that my experience in troubleshooting, project management, and attention to detail can be valuable assets in the software world.
+
+While working in IT, I discovered a growing interest in software development, particularly in web and mobile app development. To prepare for this transition, I've dedicated myself to self-study and hands-on projects. I've embarked on coding courses, participated in coding bootcamps, and even built my own software projects. These experiences have solidified my commitment to this career shift and my eagerness to learn and grow. My vision for the future involves becoming a skilled software developer who can create innovative solutions and contribute to the ever-evolving tech landscape. I'm excited about the opportunities that lie ahead and look forward to collaborating with like-minded professionals in the software field.
+
+I'm dedicated to pursuing a path in software development and continuing to build on the knowledge and skills I've acquired over the years. As I take this exciting journey, I'm eager to connect with mentors, colleagues, and organizations that share my passion for software development and its potential to shape our digital world.
+
+`,
         `I play a lot of games during my free time, and I play a rather sizeable amount of genres. 
         Hit me up on discord if you're up for a hundred matches or two! :) (discord username in my github)`,
       ],
